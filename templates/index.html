@@ -1,0 +1,144 @@
+<!DOCTYPE html> <!-- Define o tipo de documento como HTML -->
+<html lang="pt-br"> <!-- Início do documento HTML. O atributo lang define a linguagem do documento como português do Brasil -->
+
+<head> <!-- Início da seção head do documento, que contém metadados e informações de configuração -->
+<meta charset="UTF-8"> <!-- Define a codificação de caracteres do documento como UTF-8 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Define a viewport para tornar o site responsivo -->
+<title>Sorteio de Grupos</title> <!-- Define o título do documento -->
+
+<style> /* Início da seção de estilos CSS */
+body { /* Define estilos para o elemento body */
+    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%); /* Define uma imagem de fundo como um gradiente linear */
+    font-family: Arial, Helvetica, sans-serif; /* Define a família de fontes do documento */
+    display: flex; /* Define o tipo de exibição como flexível */
+    flex-direction: column; /* Define a direção dos itens flexíveis como coluna */
+    align-items: center; /* Centraliza os itens flexíveis horizontalmente */
+    color: white; /* Define a cor do texto como branco */
+    margin: 0px; /* Remove as margens */
+    padding: 0px; /* Remove o padding */
+}
+
+nav { /* Define estilos para o elemento nav */
+    display: flex; /* Define o tipo de exibição como flexível */
+    flex-direction: row; /* Define a direção dos itens flexíveis como linha */
+    width: 100%; /* Define a largura como 100% */
+    background-color: rgba(0, 0, 0, 0.5); /* Define a cor de fundo como preto com 50% de opacidade */
+    padding: 0px; /* Define o padding como 0px */
+    text-align: left; /* Alinha o texto à esquerda */
+    font-size: 20px; /* Define o tamanho da fonte como 20px */
+    margin-bottom: 100px; /* Define a margem inferior como 100px */
+}
+nav h1 { /* Define estilos para o elemento h1 dentro de nav */
+    text-align: left;
+    margin-left: 20px; /* Define a margem esquerda como 20px */
+    padding: 0px;
+}
+form { /* Define estilos para o elemento form */
+    display: flex; /* Define o tipo de exibição como flexível */
+    flex-direction: row; /* Define a direção dos itens flexíveis como linha */
+    align-items: center; /* Centraliza os itens flexíveis verticalmente */
+    justify-content: center; /* Centraliza os itens flexíveis horizontalmente */
+    background-color: rgba(0, 0, 0, 0.5); /* Define a cor de fundo como preto com 50% de opacidade */
+    padding: 20px; /* Define o padding como 20px */
+    border-radius: 10px; /* Define o raio da borda como 10px */
+}
+input { /* Define estilos para o elemento input */
+    margin: 10px; /* Define a margem como 10px */
+    padding: 10px; /* Define o padding como 10px */
+    border-radius: 5px; /* Define o raio da borda como 5px */
+    border: none; /* Remove a borda */
+}
+input#nomes { /* Define estilos para o elemento input com id "nomes" */
+    width: 300px; /* Define a largura como 300px */
+    margin-right: 40px; /* Define a margem direita como 40px */
+}
+div.grupos{ /* Define estilos para o elemento div com classe "grupos" */
+    width: 150px; /* Define a largura como 150px */
+}
+input#quantidade_grupos { /* Define estilos para o elemento input com id "quantidade_listas" */
+    width: 50px; /* Define a largura como 50px */
+    margin-right: 40; /* Define a margem direita como 40 */
+}
+input#botao_sortear{ /* Define estilos para o elemento input com id "botao_sortear" */
+    color: white; /* Define a cor do texto como branco */
+    background-color: #6a11cb; /* Define a cor de fundo como #6a11cb */
+    width: 75px; /* Define a largura como 75px */
+    margin-top: 30px; /* Define a margem superior como 30px */
+}
+label{ /* Define estilos para o elemento label */
+    display: flex; /* Define o tipo de exibição como flexível */
+    flex-direction: row; /* Define a direção dos itens flexíveis como linha */
+    justify-content: space-between; /* Distribui os itens flexíveis uniformemente ao longo da linha */
+    width: 200px; /* Define a largura como 200px */
+    margin-right: 10px; /* Define a margem direita como 10px */
+}
+.grid-container { /* Define estilos para o elemento com classe "grid-container" */
+    display: flex; /* Define o tipo de exibição como flexível */
+    justify-content: center; /* Centraliza os itens flexíveis horizontalmente */
+    flex-wrap: wrap; /* Permite que os itens flexíveis sejam quebrados em várias linhas */
+    gap: 10px; /* Define o espaço entre os itens flexíveis como 10px */
+    padding: 10px; /* Define o padding como 10px */
+}
+.grid-item { /* Define estilos para o elemento com classe "grid-item" */
+    border-radius: 10px; /* Define o raio da borda como 10px */
+    border: 1px solid rgba(255, 255, 255, 0.356); /* Define a borda como 1px sólida e branca com 35.6% de opacidade */
+    padding: 10px; /* Define o padding como 10px */
+    background-color: rgba(0, 0, 0, 0.5); /* Define a cor de fundo como preto com 50% de opacidade */
+    color: white; /* Define a cor do texto como branco */
+    margin: 10px; /* Define a margem como 10px */
+}
+footer { /* Define estilos para o elemento footer */
+    background-color: rgba(0, 0, 0, 0.5); /* Define a cor de fundo como preto com 50% de opacidade */
+    color: white; /* Define a cor do texto como branco */
+    text-align: center; /* Alinha o texto ao centro */
+    padding: 0px; /* Define o padding como 10px */
+    position: fixed; /* Define a posição como fixa */
+    left: 0; /* Define a posição esquerda como 0 */
+    bottom: 0; /* Define a posição inferior como 0 */
+    width: 100%; /* Define a largura como 100% */
+}
+@media screen and (max-width: 775px) { /* Define estilos para telas com largura máxima de 775px (para responsividade) */
+    form {
+        flex-direction: column; /* Define a direção dos itens flexíveis como coluna */
+    }
+}
+</style> <!-- Fim da seção de estilos CSS -->
+</head> <!-- Fim da seção head do documento -->
+
+<body> <!-- Início da seção body do documento, que contém o conteúdo principal -->
+    <nav> <!-- Início da seção de navegação -->
+        <h1>Sorteio de Grupos</h1> <!-- Título da página -->
+    </nav> <!-- Fim da seção de navegação -->
+    <form method="POST"> <!-- Início do formulário. O método POST é usado para enviar os dados do formulário -->
+        <div class="nomes"> <!-- Início da seção de nomes -->
+            <label for="nomes">Nomes:</label> <!-- Rótulo para o campo de entrada de nomes -->
+            <input type="text" id="nomes" name="nomes" required placeholder="EX: João, Maria, Ana, Carlos, Lucas"> <!-- Campo de entrada de nomes. O atributo required torna o campo obrigatório. O atributo placeholder define um texto de exemplo -->
+        </div> <!-- Fim da seção de nomes -->
+        <div class="quantidade_grupos"> <!-- Início da seção de grupos -->
+            <label for="quantidade_grupos">Quant. de Grupos:</label> <!-- Rótulo para o campo de entrada de quantidade de grupos -->
+            <input type="number" id="quantidade_grupos" name="quantidade_grupos" required placeholder="EX: 2"> <!-- Campo de entrada de quantidade de grupos. O atributo required torna o campo obrigatório. O atributo placeholder define um texto de exemplo -->
+        </div> <!-- Fim da seção de grupos -->
+        <input type="submit" value="Sortear" id="botao_sortear"> <!-- Botão de envio do formulário. O valor "Sortear" é o texto exibido no botão -->
+    </form> <!-- Fim do formulário -->
+    {% if error %} <!-- Se houver um erro (definido no código Python), este bloco será executado -->
+    <p>{{ error }}</p> <!-- Exibe a mensagem de erro -->
+    {% elif lista_grupos %} <!-- Se houver listas (definidas no código Python), este bloco será executado -->
+        <div class="grid-container"> <!-- Início da seção de grid -->
+        {% for grupos in lista_grupos %} <!-- Para cada lista nas listas (loop for) -->
+            <div class="grid-item"> <!-- Início de um item do grid -->
+                <h2>Grupo {{ loop.index | string | upper }}</h2> <!-- Título do grupo. loop.index retorna o índice atual do loop -->
+                {% for nomes in grupos %} <!-- Para cada nome na lista (loop for) -->
+                <p>{{ nomes }}</p> <!-- Exibe o nome -->
+                {% if not loop.last %} <!-- Se não for o último nome na lista, este blobo será executado -->
+                <hr> <!-- Insere uma linha horizontal -->
+                {% endif %} <!-- Fim do bloco if -->
+                {% endfor %} <!-- Fim do loop for -->
+            </div> <!-- Fim de um item do grid -->
+            {% endfor %} <!-- Fim do loop for -->
+        </div> <!-- Fim da seção de grid -->
+        {% endif %} <!-- Fim do bloco if -->
+    <footer> <!-- Início do rodapé -->
+        <p>© 2023 Sorteio de Grupos. Site desenvolvido por Guilherme Penso, Emanuel André, Murilo Lustosa e Matheus Guilherme.</p> <!-- Texto do rodapé -->
+    </footer> <!-- Fim do rodapé -->
+</body> <!-- Fim da seção body do documento -->
+</html> <!-- Fim do documento HTML -->
